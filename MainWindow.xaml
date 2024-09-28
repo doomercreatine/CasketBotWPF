@@ -1,0 +1,85 @@
+﻿<Window x:Class="CasketChatBot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CasketChatBot"
+        xmlns:views="clr-namespace:CasketChatBot.Views"
+        xmlns:viewModel="clr-namespace:CasketChatBot.ViewModels"
+        mc:Ignorable="d"
+        Title="Kairu's Casket Twitch Bot" 
+        Icon="Assets/icon.ico"
+        Height="360" 
+        Width="640"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip">
+
+    <Border BorderBrush="Gray"
+            BorderThickness="1">
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+            <DockPanel Grid.Row="0"
+                   Height="28"
+                   Background="#1e1e1e"
+           MouseDown="DockPanel_MouseDown">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Image Source="Assets/icon.ico"
+                   Width="16"
+                   Height="16"
+                   Margin="10 0 0 0"/>
+            <TextBlock Text="Doomer's Casket Bot"
+                       Grid.Column="1"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       Margin="10 0 0 0"/>
+                <CheckBox x:Name="KeepOnTop" 
+                          Content="Keep on top" 
+                          IsChecked="False" 
+                          VerticalAlignment="Center" 
+                          Margin="10 0 0 0"
+                          Checked="KeepOnTop_Checked"
+                          Unchecked="KeepOnTop_Unchecked"
+                          Foreground="White"/>
+                <StackPanel HorizontalAlignment="Right"
+                Orientation="Horizontal"
+                        Grid.Column="1"
+                        Margin="0 0 10 0">
+
+                <Button Width="20" Height="20"
+                Content="🗕"
+                Background="Transparent"
+                BorderThickness="0"
+                Foreground="Gray"
+                FontWeight="Bold"
+                Margin="0,0,0,3"
+                        Click="MinimizeButton_Click"/>
+
+                    <TextBlock Width="20" Height="20"/>
+
+                    <Button Width="20" Height="20"
+                Content="✕"
+                Background="Transparent"
+                BorderThickness="0"
+                Foreground="Gray"
+                FontWeight="Bold"
+                        Click="CloseButton_Click"/>
+
+            </StackPanel>
+        </DockPanel>
+        
+        <views:HomeView Grid.Row="1"/>
+    </Grid>
+    </Border>
+</Window>
